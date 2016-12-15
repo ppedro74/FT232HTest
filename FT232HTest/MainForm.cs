@@ -252,24 +252,20 @@ namespace FT232HTest
                     {
                         if (this.adafruit_BMP085 != null)
                         {
-                            //{
-                            //    float t;
-                            //    this.adafruit_BMP085.getTemperature(out t);
+                            float t;
+                            this.adafruit_BMP085.getTemperature(out t);
 
-                            //    float p;
-                            //    this.adafruit_BMP085.getPressure(out p);
+                            float p;
+                            this.adafruit_BMP085.getPressure(out p);
 
-                            //    var a = this.adafruit_BMP085.pressureToAltitude(Adafruit_BMP085.PRESSURE_SEALEVELHPA, p);
-                            //}
+                            var a = this.adafruit_BMP085.pressureToAltitude(Adafruit_BMP085.PRESSURE_SEALEVELHPA, p);
 
-                            int t;
-                            this.adafruit_BMP085.readRawTemperature(out t);
-
-                            int p;
-                            this.adafruit_BMP085.readRawPressure(out p);
-
-                            int a = 0;
-
+                            //int t;
+                            //this.adafruit_BMP085.readRawTemperature(out t);
+                            //int p;
+                            //this.adafruit_BMP085.readRawPressure(out p);
+                            //int a = 0;
+                            
                             this.adafruit_BMP085.Debug(string.Format("Temperature={0} C Pressure={1} Pa Altitute={2}", t, p, a));
                         }
 
