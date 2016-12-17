@@ -80,6 +80,7 @@
     <Compile Include="Adafruit_ADS1115.cs" />
     <Compile Include="Adafruit_BMP085.cs" />
     <Compile Include="Adafruit_BMP085_old.cs" />
+    <Compile Include="Adafruit_HMC5883L.cs" />
     <Compile Include="FtdiDevice.cs" />
     <Compile Include="I2CBus.cs" />
     <Compile Include="I2CDeviceBase.cs" />

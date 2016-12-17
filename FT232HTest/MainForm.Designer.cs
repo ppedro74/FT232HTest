@@ -31,9 +31,9 @@ namespace FT232HTest
             this.components = new System.ComponentModel.Container();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.TabPage0 = new System.Windows.Forms.TabPage();
-            this.VL53L0XGroup = new System.Windows.Forms.GroupBox();
-            this.VL53L0XScroll = new System.Windows.Forms.CheckBox();
-            this.VL53L0XOutput = new System.Windows.Forms.TextBox();
+            this.HMC5883LGroup = new System.Windows.Forms.GroupBox();
+            this.HMC5883LScroll = new System.Windows.Forms.CheckBox();
+            this.HMC5883LOutput = new System.Windows.Forms.TextBox();
             this.BMP180Group = new System.Windows.Forms.GroupBox();
             this.BMP180Scroll = new System.Windows.Forms.CheckBox();
             this.BMP180Output = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@ namespace FT232HTest
             this.ADS1115Scroll = new System.Windows.Forms.CheckBox();
             this.ADS1115Output = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.VL53L0XEnable = new System.Windows.Forms.CheckBox();
+            this.HMC5883LEnable = new System.Windows.Forms.CheckBox();
             this.BMP180Enable = new System.Windows.Forms.CheckBox();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.DeviceComboBox = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@ namespace FT232HTest
             this.OneSecondTimer = new System.Windows.Forms.Timer(this.components);
             this.TabControl1.SuspendLayout();
             this.TabPage0.SuspendLayout();
-            this.VL53L0XGroup.SuspendLayout();
+            this.HMC5883LGroup.SuspendLayout();
             this.BMP180Group.SuspendLayout();
             this.ADS1115Group.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -73,7 +73,7 @@ namespace FT232HTest
             // 
             // TabPage0
             // 
-            this.TabPage0.Controls.Add(this.VL53L0XGroup);
+            this.TabPage0.Controls.Add(this.HMC5883LGroup);
             this.TabPage0.Controls.Add(this.BMP180Group);
             this.TabPage0.Controls.Add(this.ADS1115Group);
             this.TabPage0.Controls.Add(this.groupBox4);
@@ -84,39 +84,39 @@ namespace FT232HTest
             this.TabPage0.Text = "I2C";
             this.TabPage0.UseVisualStyleBackColor = true;
             // 
-            // VL53L0XGroup
+            // HMC5883LGroup
             // 
-            this.VL53L0XGroup.Controls.Add(this.VL53L0XScroll);
-            this.VL53L0XGroup.Controls.Add(this.VL53L0XOutput);
-            this.VL53L0XGroup.Enabled = false;
-            this.VL53L0XGroup.Location = new System.Drawing.Point(3, 261);
-            this.VL53L0XGroup.Name = "VL53L0XGroup";
-            this.VL53L0XGroup.Size = new System.Drawing.Size(763, 88);
-            this.VL53L0XGroup.TabIndex = 14;
-            this.VL53L0XGroup.TabStop = false;
-            this.VL53L0XGroup.Text = "VL53L0X";
+            this.HMC5883LGroup.Controls.Add(this.HMC5883LScroll);
+            this.HMC5883LGroup.Controls.Add(this.HMC5883LOutput);
+            this.HMC5883LGroup.Enabled = false;
+            this.HMC5883LGroup.Location = new System.Drawing.Point(3, 261);
+            this.HMC5883LGroup.Name = "HMC5883LGroup";
+            this.HMC5883LGroup.Size = new System.Drawing.Size(763, 88);
+            this.HMC5883LGroup.TabIndex = 14;
+            this.HMC5883LGroup.TabStop = false;
+            this.HMC5883LGroup.Text = "HMC5883L";
             // 
-            // VL53L0XScroll
+            // HMC5883LScroll
             // 
-            this.VL53L0XScroll.AutoSize = true;
-            this.VL53L0XScroll.Location = new System.Drawing.Point(6, 20);
-            this.VL53L0XScroll.Name = "VL53L0XScroll";
-            this.VL53L0XScroll.Size = new System.Drawing.Size(58, 17);
-            this.VL53L0XScroll.TabIndex = 4;
-            this.VL53L0XScroll.Text = "Scroll";
-            this.VL53L0XScroll.UseVisualStyleBackColor = true;
+            this.HMC5883LScroll.AutoSize = true;
+            this.HMC5883LScroll.Location = new System.Drawing.Point(6, 20);
+            this.HMC5883LScroll.Name = "HMC5883LScroll";
+            this.HMC5883LScroll.Size = new System.Drawing.Size(58, 17);
+            this.HMC5883LScroll.TabIndex = 4;
+            this.HMC5883LScroll.Text = "Scroll";
+            this.HMC5883LScroll.UseVisualStyleBackColor = true;
             // 
-            // VL53L0XOutput
+            // HMC5883LOutput
             // 
-            this.VL53L0XOutput.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VL53L0XOutput.Location = new System.Drawing.Point(84, 18);
-            this.VL53L0XOutput.Multiline = true;
-            this.VL53L0XOutput.Name = "VL53L0XOutput";
-            this.VL53L0XOutput.ReadOnly = true;
-            this.VL53L0XOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.VL53L0XOutput.Size = new System.Drawing.Size(661, 64);
-            this.VL53L0XOutput.TabIndex = 3;
-            this.VL53L0XOutput.WordWrap = false;
+            this.HMC5883LOutput.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HMC5883LOutput.Location = new System.Drawing.Point(84, 18);
+            this.HMC5883LOutput.Multiline = true;
+            this.HMC5883LOutput.Name = "HMC5883LOutput";
+            this.HMC5883LOutput.ReadOnly = true;
+            this.HMC5883LOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.HMC5883LOutput.Size = new System.Drawing.Size(661, 64);
+            this.HMC5883LOutput.TabIndex = 3;
+            this.HMC5883LOutput.WordWrap = false;
             // 
             // BMP180Group
             // 
@@ -188,7 +188,7 @@ namespace FT232HTest
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.VL53L0XEnable);
+            this.groupBox4.Controls.Add(this.HMC5883LEnable);
             this.groupBox4.Controls.Add(this.BMP180Enable);
             this.groupBox4.Controls.Add(this.ConnectButton);
             this.groupBox4.Controls.Add(this.DeviceComboBox);
@@ -201,16 +201,16 @@ namespace FT232HTest
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Main";
             // 
-            // VL53L0XEnable
+            // HMC5883LEnable
             // 
-            this.VL53L0XEnable.AutoSize = true;
-            this.VL53L0XEnable.Location = new System.Drawing.Point(252, 41);
-            this.VL53L0XEnable.Name = "VL53L0XEnable";
-            this.VL53L0XEnable.Size = new System.Drawing.Size(75, 17);
-            this.VL53L0XEnable.TabIndex = 4;
-            this.VL53L0XEnable.Text = "VL53L0X";
-            this.VL53L0XEnable.UseVisualStyleBackColor = true;
-            this.VL53L0XEnable.CheckedChanged += new System.EventHandler(this.VL53L0XEnable_CheckedChanged);
+            this.HMC5883LEnable.AutoSize = true;
+            this.HMC5883LEnable.Location = new System.Drawing.Point(252, 41);
+            this.HMC5883LEnable.Name = "HMC5883LEnable";
+            this.HMC5883LEnable.Size = new System.Drawing.Size(75, 17);
+            this.HMC5883LEnable.TabIndex = 4;
+            this.HMC5883LEnable.Text = "HMC5883L";
+            this.HMC5883LEnable.UseVisualStyleBackColor = true;
+            this.HMC5883LEnable.CheckedChanged += new System.EventHandler(this.HMC5883LEnable_CheckedChanged);
             // 
             // BMP180Enable
             // 
@@ -318,8 +318,8 @@ namespace FT232HTest
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.TabControl1.ResumeLayout(false);
             this.TabPage0.ResumeLayout(false);
-            this.VL53L0XGroup.ResumeLayout(false);
-            this.VL53L0XGroup.PerformLayout();
+            this.HMC5883LGroup.ResumeLayout(false);
+            this.HMC5883LGroup.PerformLayout();
             this.BMP180Group.ResumeLayout(false);
             this.BMP180Group.PerformLayout();
             this.ADS1115Group.ResumeLayout(false);
@@ -348,13 +348,13 @@ namespace FT232HTest
         private System.Windows.Forms.CheckBox ADS1115Scroll;
         internal System.Windows.Forms.TextBox ADS1115Output;
         private System.Windows.Forms.CheckBox ADS1115Enable;
-        private System.Windows.Forms.GroupBox VL53L0XGroup;
-        private System.Windows.Forms.CheckBox VL53L0XScroll;
-        internal System.Windows.Forms.TextBox VL53L0XOutput;
+        private System.Windows.Forms.GroupBox HMC5883LGroup;
+        private System.Windows.Forms.CheckBox HMC5883LScroll;
+        internal System.Windows.Forms.TextBox HMC5883LOutput;
         private System.Windows.Forms.GroupBox BMP180Group;
         private System.Windows.Forms.CheckBox BMP180Scroll;
         internal System.Windows.Forms.TextBox BMP180Output;
-        private System.Windows.Forms.CheckBox VL53L0XEnable;
+        private System.Windows.Forms.CheckBox HMC5883LEnable;
         private System.Windows.Forms.CheckBox BMP180Enable;
     }
 }

@@ -99,6 +99,15 @@
             }
         }
 
+        protected void ReadRegisterBytes(byte registerAddress, byte[] buffer)
+        {
+            var result = this.i2c.ReadRegisterBytes(this.Address, registerAddress, buffer);
+            if (result != 0)
+            {
+                this.Debug(string.Format("Error: ReadRegisterBytes result={0}", result));
+            }
+        }
+
 
         protected void SleepMilliSeconds(Int32 ms)
         {

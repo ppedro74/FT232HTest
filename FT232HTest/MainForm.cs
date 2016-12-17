@@ -18,7 +18,7 @@ namespace FT232HTest
         }
         private readonly FtdiDevice ftdiDevice = new FtdiDevice();
         private object lockObject = new object();
-        private Adafruit_VL53L0X adafruit_VL53L0X = null;
+        private Adafruit_HMC5883L adafruit_HMC5883L = null;
         private Adafruit_ADS1115 adafruit_ADS1115 = null;
         private Adafruit_BMP085 adafruit_BMP085 = null;
 
@@ -93,7 +93,7 @@ namespace FT232HTest
                 var success = this.ftdiDevice.OpenBySerialNumber(selectedDevice.Id) == FTDI.FT_STATUS.FT_OK;
                 if (success)
                 {
-                    success = this.ftdiDevice.I2CInit(Mpsse.I2C_CLOCKRATE.I2C_CLOCK_FAST_MODE, 100, Mpsse.I2C_INIT_OPTIONS.NONE) == FTDI.FT_STATUS.FT_OK;
+                    success = this.ftdiDevice.I2CInit(Mpsse.I2C_CLOCKRATE.I2C_CLOCK_STANDARD_MODE, 100, Mpsse.I2C_INIT_OPTIONS.NONE) == FTDI.FT_STATUS.FT_OK;
                     if (success)
                     {
                         this.ConnectButton.Text = labels[1];
@@ -102,7 +102,7 @@ namespace FT232HTest
 
                         this.ModuleADS1115(ModuleAction.Start);
                         this.ModuleBMP085(ModuleAction.Start);
-                        this.ModuleVL53L0X(ModuleAction.Start);
+                        this.ModuleHMC5883L(ModuleAction.Start);
 
                         this.OneSecondTimer.Start();
                     }
@@ -113,7 +113,7 @@ namespace FT232HTest
                         {
                             this.ModuleADS1115(ModuleAction.Terminate);
                             this.ModuleBMP085(ModuleAction.Terminate);
-                            this.ModuleVL53L0X(ModuleAction.Terminate);
+                            this.ModuleHMC5883L(ModuleAction.Terminate);
 
                             this.ftdiDevice.Close();
                         }
@@ -142,10 +142,10 @@ namespace FT232HTest
             this.BMP180Group.Enabled = checkBox.Checked;
         }
 
-        private void VL53L0XEnable_CheckedChanged(object sender, EventArgs e)
+        private void HMC5883LEnable_CheckedChanged(object sender, EventArgs e)
         {
             var checkBox = (CheckBox)sender;
-            this.VL53L0XGroup.Enabled = checkBox.Checked;
+            this.HMC5883LGroup.Enabled = checkBox.Checked;
         }
 
         private void OneSecondTimer_Tick(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace FT232HTest
 
                 this.ModuleADS1115(ModuleAction.Run);
                 this.ModuleBMP085(ModuleAction.Run);
-                this.ModuleVL53L0X(ModuleAction.Run);
+                this.ModuleHMC5883L(ModuleAction.Run);
             }
         }
 
@@ -185,9 +185,9 @@ namespace FT232HTest
 
 
 
-        private void ModuleVL53L0X(ModuleAction action)
+        private void ModuleHMC5883L(ModuleAction action)
         {
-            if (!this.VL53L0XEnable.Checked)
+            if (!this.HMC5883LEnable.Checked)
             {
                 return;
             }
@@ -196,30 +196,30 @@ namespace FT232HTest
             {
                 case ModuleAction.Start:
                     {
-                        var device = new Adafruit_VL53L0X(this.ftdiDevice);
-                        device.SetDebugAction((text, clear) => Debug(this.VL53L0XOutput, this.VL53L0XScroll, text, clear));
+                        var device = new Adafruit_HMC5883L(this.ftdiDevice);
+                        device.SetDebugAction((text, clear) => Debug(this.HMC5883LOutput, this.HMC5883LScroll, text, clear));
                         bool success = device.Initialize();
                         if (success)
                         {
                             lock (lockObject)
                             {
-                                this.adafruit_VL53L0X = device;
+                                this.adafruit_HMC5883L = device;
                             }
                         }
                         break;
                     }
                 case ModuleAction.Run:
                     {
-                        if (this.adafruit_VL53L0X != null)
+                        if (this.adafruit_HMC5883L != null)
                         {
-                            var d = this.adafruit_VL53L0X.readRangeSingleMillimeters();
-                            this.adafruit_VL53L0X.Debug(string.Format("distance={0} mm", d));
+                            var d = this.adafruit_HMC5883L.read();
+                            this.adafruit_HMC5883L.Debug(string.Format("heading={3:F2} x={0:F2} y={1:F2} z={2:F2}", d.x, d.y, d.z, d.orientation));
                         }
                         break;
                     }
                 case ModuleAction.Terminate:
                     {
-                        this.adafruit_VL53L0X = null;
+                        this.adafruit_HMC5883L = null;
                         break;
                     }
             }

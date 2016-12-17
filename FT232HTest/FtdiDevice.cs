@@ -344,16 +344,21 @@
         uint I2CBus.ReadRegisterBytes(byte deviceAddress, byte registerAddress, byte[] buffer)
         {
             uint bytesSent = 0;
-            var ftStatus = I2CWrite(deviceAddress, 1, new[] { registerAddress }, ref bytesSent, Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_START_BIT | Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_NACK_LAST_BYTE);
-           
+            var ftStatus = I2CWrite(deviceAddress, 1, new[] { registerAddress }, ref bytesSent, Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_START_BIT
+                //| Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_STOP_BIT
+                //| Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_FAST_TRANSFER
+                );
+
             if (ftStatus == FTDI.FT_STATUS.FT_OK)
             {
+                Thread.Sleep(50);
                 uint bytesReceived = 0;
                 ftStatus = I2CRead(deviceAddress, (uint)buffer.Length, buffer, ref bytesReceived,
                     Mpsse.I2C_TRANSFER_OPTIONS.NONE
-                    //| Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_START_BIT 
-                    | Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_STOP_BIT 
+                    | Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_START_BIT
                     | Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_NACK_LAST_BYTE
+                    | Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_STOP_BIT
+                    //| Mpsse.I2C_TRANSFER_OPTIONS.I2C_TRANSFER_OPTIONS_FAST_TRANSFER
                     );
             }
 
